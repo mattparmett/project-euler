@@ -19,6 +19,7 @@ import Data.List (group)
 
 prob12 = head $ filter ((> 500) . numFactors) triangleNums
   where triangleNums = scanl1 (+) [1..]
+        -- http://www.gmathacks.com/gmat-math/number-of-factors-of-a-large-integer.html
         numFactors n = product $ map ((+ 1) . length) $ group $ primeFactors n
 
 -- From prob3.hs:
