@@ -27,7 +27,8 @@ collatzChain n
       -- be more likely to contain the longest chain.
 -- Finally, so the program doesn't take forever to run, let's throw 
 -- the logic into main and compile it into an exe (ghc -O prob14.hs).
+-- Run with `prob14` at the command prompt.
 main :: IO()
 main = do
     let chains = map (\n -> (n, length $ collatzChain n)) [999999, 999997..3]
-    print . fst $ head $ reverse $ sortBy (compare `on` snd) chains
+    print . fst $ last $ sortBy (compare `on` snd) chains
